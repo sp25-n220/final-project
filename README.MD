@@ -30,7 +30,7 @@ Joseph Roper Lollapalooza:
 
 **Kiersten Foulk Bonnaroo:**
 
-**Shaky Knees* - Haven Hamelin
+**Shaky Knees** - Haven Hamelin
 1. The first page will describe the festival and what artists will be performing on what days this year. Along with pictures of some of the headliners. 
 2. The second page will allow the user to purchase different kinds of tickets using appropriate CRUD techniques.
 
