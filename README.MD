@@ -24,7 +24,7 @@ Joseph Roper Lollapalooza:
     - Purchase tickets (simulated database) (Delete)
     - Change any scheduling in order to get the best Lolla experience (Update)
 
-Kiersten Foulk Bonaroo:
+**Kiersten Foulk Bonnaroo:**
 
 
 
@@ -36,6 +36,7 @@ Kiersten Foulk Bonaroo:
   - **Coral Glow** | #FF6F61 | Section backgrounds or highlight areas – gives a playful and friendly touch.
   - **Sky Blue** | #4A90E2 | For links, secondary buttons, and dividers – cool contrast to the warm hues.
   - **Warm Sand** | #FFF8F0 | Neutral background for readability – keeps the layout clean and inviting.
+
 **Rationale:**
 This palette evokes a vibrant, energetic summer festival vibe, ideal for visually immersing users in the feeling of a sunset-lit stage. The warm tones pull users in, while cooler elements like Sky Blue balance it out and guide navigation.
 
