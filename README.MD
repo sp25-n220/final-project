@@ -24,6 +24,8 @@ Joseph Roper Lollapalooza:
     - Purchase tickets (simulated database) (Delete)
     - Change any scheduling in order to get the best Lolla experience (Update)
 
+Kiersten Foulk Bonaroo:
+
 
 
 ### Design Choices
@@ -66,7 +68,6 @@ Table: **festivals**
 - website_link | VARCHAR | External or internal festival page link
 
 Table: **ticket_orders**
-- Column Name | Data Type | Description
 - order_id | INT (PK) | Unique identifier for each order
 - festival_id | INT (FK) | References festivals.id to link to the associated festival
 - user_name | VARCHAR | Name of the user placing the order
