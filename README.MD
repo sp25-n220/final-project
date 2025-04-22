@@ -73,4 +73,8 @@ List all members and their roles
 
 Elias Arriaga - Analyist 
 
-Joseph Roper - 
+Joseph Roper - President
+
+Haven Hamelin - Scrum Master
+
+Kieren Foulk - Designer
