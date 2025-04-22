@@ -10,7 +10,11 @@ Our final project will focus on festivals, specifically festivals held in the U.
 
 ### Key Takeaways
 
-Understanding of why we are doing this project
+The importance of doing this project is to give each of us an opportunity to practice our skills at constructing a professional looking website that uses CRUD functionality to create a useful and intuitive experience. 
+Specifically:
+ - Professional design
+ - SQL, CRUD, and API endpoints
+ - Automatically generating useful PDF files
 
 ### Core Webpages
 
@@ -25,6 +29,10 @@ Joseph Roper Lollapalooza:
     - Change any scheduling in order to get the best Lolla experience (Update)
 
 **Kiersten Foulk Bonnaroo:**
+
+**Shaky Knees* - Haven Hamelin
+1. The first page will describe the festival and what artists will be performing on what days this year. Along with pictures of some of the headliners. 
+2. The second page will allow the user to purchase different kinds of tickets using appropriate CRUD techniques.
 
 
 
