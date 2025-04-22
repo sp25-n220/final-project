@@ -64,17 +64,6 @@ Layout stacks vertically on smaller screens with collapsible menus and swipeable
   - image_url | VARCHAR | Path to featured image
   - website_link | VARCHAR | External or internal festival page link
   
-  ###### Ticket table: 
-
-  - ticketID | INT (PK) | Id for a festival ticket
-  - fName | VARCHAR | first name of person
-  - lName | VARCHAR | last name of person 
-  - date_purchased | DATA | date the ticket was purchased
-  - name | VARCHAR | Name of the festival
-  - location | VARCHAR | City, State
-  - start_date | DATE | Festival start date
-  - end_date | DATE | Festival end date
-  
 
 **Rationale:**
 The table supports scalable and dynamic rendering of each festival, allowing for easy filtering and visual presentation across category pages. It also supports consistent color tagging or styling based on festival category.
