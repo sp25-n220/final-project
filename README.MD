@@ -57,15 +57,28 @@ A simplified U.S. map highlights festival regions. Hovering reveals festival nam
 Layout stacks vertically on smaller screens with collapsible menus and swipeable carousels for an intuitive mobile experience. (Bootstrap)
 
 #### Database Table Design
-  - id | INT (PK) | Unique identifier for each festival
-  - name | VARCHAR | Name of the festival
-  - location | VARCHAR | City, State
-  - category | VARCHAR | Type of festival (Music, Food, Cultural...)
-  - start_date | DATE | Festival start date
-  - end_date | DATE | Festival end date
-  - description | TEXT | Festival overview
-  - image_url | VARCHAR | Path to featured image
-  - website_link | VARCHAR | External or internal festival page link
+ Table: **festivals**
+ - id | INT (PK) | Unique identifier for each festival
+ - name | VARCHAR | Name of the festival
+ - location | VARCHAR | City, State
+ - category | VARCHAR | Type of festival (Music, Food, Cultural...)
+ - start_date | DATE | Festival start date
+ - end_date | DATE | Festival end date
+ - description | TEXT | Festival overview
+ - image_url | VARCHAR | Path to featured image
+ - website_link | VARCHAR | External or internal festival page link
+ 
+ Table: **ticket_orders**
+ - order_id | INT (PK) | Unique identifier for each order
+ - festival_id | INT (FK) | References festivals.id to link to the associated festival
+ - user_name | VARCHAR | Name of the user placing the order
+ - user_email | VARCHAR | Email of the user for order confirmation display
+ - ticket_quantity | INT | Number of tickets ordered
+ - ticket_type | VARCHAR | Type of ticket (e.g., "General Admission", "VIP")
+ - price | DECIMAL(10,2) | Price per ticket (can be used to calculate total cost)
+ - order_date | DATETIME | Timestamp of when the order was placed
+ - status | VARCHAR | Order status (e.g., "confirmed", "pending", "canceled")
+ - confirmation_code | VARCHAR | Unique string for each order (e.g., "CONF-INDYJAZZ-2025-ABC123")
 
 **Rationale:**
 The tables support scalable and dynamic rendering of each festival and ticket purchase, allowing for easy filtering and visual presentation across category pages and confirmations upon purchase. It also supports consistent color tagging or styling based on festival category.
