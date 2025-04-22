@@ -24,6 +24,8 @@ Joseph Roper Lollapalooza:
     - Purchase tickets (simulated database) (Delete)
     - Change any scheduling in order to get the best Lolla experience (Update)
 
+**Kiersten Foulk Bonnaroo:**
+
 
 
 ### Design Choices
@@ -34,6 +36,7 @@ Joseph Roper Lollapalooza:
   - **Coral Glow** | #FF6F61 | Section backgrounds or highlight areas – gives a playful and friendly touch.
   - **Sky Blue** | #4A90E2 | For links, secondary buttons, and dividers – cool contrast to the warm hues.
   - **Warm Sand** | #FFF8F0 | Neutral background for readability – keeps the layout clean and inviting.
+
 **Rationale:**
 This palette evokes a vibrant, energetic summer festival vibe, ideal for visually immersing users in the feeling of a sunset-lit stage. The warm tones pull users in, while cooler elements like Sky Blue balance it out and guide navigation.
 
@@ -63,10 +66,9 @@ Layout stacks vertically on smaller screens with collapsible menus and swipeable
   - description | TEXT | Festival overview
   - image_url | VARCHAR | Path to featured image
   - website_link | VARCHAR | External or internal festival page link
-  
 
 **Rationale:**
-The table supports scalable and dynamic rendering of each festival, allowing for easy filtering and visual presentation across category pages. It also supports consistent color tagging or styling based on festival category.
+The tables support scalable and dynamic rendering of each festival and ticket purchase, allowing for easy filtering and visual presentation across category pages and confirmations upon purchase. It also supports consistent color tagging or styling based on festival category.
 
 ### Members & Responsibilities
 
