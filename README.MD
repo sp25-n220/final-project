@@ -28,7 +28,7 @@ List core webpages and briefly describe the page of them
 This palette evokes a vibrant, energetic summer festival vibe, ideal for visually immersing users in the feeling of a sunset-lit stage. The warm tones pull users in, while cooler elements like Sky Blue balance it out and guide navigation.
 
 #### Layout:
-  - Hero Section with Featured Next Upcoming Festival:
+  - Hero Section with Featured Next Upcoming Festivals:
 A full-width banner showcases a rotating carousel of top festivals with dates, locations, and an immediate “Learn More” button.
 
   - Sticky Navigation Bar:
