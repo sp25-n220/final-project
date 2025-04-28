@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         const card = document.createElement("a");
         card.className = "card";
-        card.href = `festivals/${slug}`; 
+        card.href = `${slug}`; 
         card.innerHTML = `
           <h2>${festival.name}</h2>
           <img src="${festival.image_url}" alt="${festival.name}" />
