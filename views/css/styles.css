@@ -32,3 +32,65 @@
 .navbar ul li a:hover {
     color: lightgray;
 }
+
+/* Lollapalooza CSS*/
+
+.lolla-wrapper {
+    max-width: 85%;
+    max-height: 90%;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.lolla-wrapper .lolla-image {
+    background-color: blue;
+    width: 100%;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+}
+
+.lolla-wrapper .lolla-image .lolla-text {
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    /* margin: 0 auto; */
+}
+
+.lolla-wrapper .lolla-image .lolla-text p {
+}
+
+.lolla-wrapper .three-lolla .img1 {
+}
+
+.lolla-wrapper .three-lolla .img2 {
+}
+
+.lolla-wrapper .three-lolla .img3 {
+}
+
+.lolla-wrapper .lolla-data1 .data1-img {
+}
+
+.lolla-wrapper .lolla-data1 .data1-text {
+}
+
+.lolla-wrapper .lolla-data2 .data2-img {
+}
+
+.lolla-wrapper .lolla-data2 .data2-text {
+}
+
+.lolla-wrapper .lolla-data3 .data3-img {
+}
+
+.lolla-wrapper .lolla-data3 .data3-text {
+}
+
+/* Lollapalooza - CRUD CSS */
