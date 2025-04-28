@@ -3,26 +3,27 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.json());
-
-app.use("/api", require("./api"));
-
-app.use(express.static(path.join(__dirname, "views")));
 app.use(
-  "/n320nodejs",
-  function (req, res, next) {
-    if (req.url.endsWith(".html")) {
-      const safeHost = req.headers.host.includes("http")
-        ? req.header.host
-        : "http://" + req.headers.host;
-      res.redirect(safeHost + req.url);
-      //   next();
-    } else {
-      next();
-    }
-  },
-  express.static(path.join(__dirname, "views"))
+  express.json()
 );
+
+app.use(
+  "/api",
+  require("./api")
+);
+
+app.use(
+  express.static(
+      path.join(__dirname, "views")
+  )
+);
+
+app.use((req, res) => {
+  res.status(404);
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
+  }
+});
 
 app.listen(5445);
 
