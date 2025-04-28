@@ -1,7 +1,15 @@
 @import url("reset.css");
 :root {
-/* Add color variables here */
+    --highlight-color: #FF5E3A;
+    --accent-color: #FFB300;
+    --section-background-color: #FF6F61;
+    --active-color: #4A90E2;
+    --background-color: #FFF8F0;
     --navbar-height: 75px;
+}
+
+body {
+    font-family: sans-serif;
 }
 
 .navbar {
@@ -94,3 +102,30 @@
 }
 
 /* Lollapalooza - CRUD CSS */
+.cards-wrapper {
+    display: flex;
+    margin: 0 7.5vw;
+}
+
+.card {
+    width: 350px;
+    height: 500px;
+    padding-top: 20px;
+    background-color: var(--section-background-color);
+    border-radius: 25px;
+
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.card h2 {
+    color: var(--accent-color);
+}
+
+
+.card img {
+    width: 100%;
+    padding: 15px;
+    background-color: #ccc;
+}

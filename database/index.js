@@ -1,8 +1,8 @@
 const sqlite = require("sqlite3").verbose();
 
-const db = new sqlite.Database("database/gems.sqlite", function (err) {
-  if (err) console.log("Failed Connect: Gems SQLite Database");
-  else console.log("Successful Connect: Gems SQLite Database");
+const db = new sqlite.Database("database/festivals.sqlite", function (err) {
+  if (err) console.log("Failed Connect: Festivals SQLite Database");
+  else console.log("Successful Connect: Festivals SQLite Database");
 });
 
 async function getAllGemCharacters() {
