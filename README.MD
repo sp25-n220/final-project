@@ -8,7 +8,7 @@ Our final project will focus on festivals, specifically festivals held in the U.
 
 ### Live Link
 
-[Home Page](https://in-info-web4.luddy.indianapolis.iu.edu/~hhamelin/n320nodejs)
+[Home Page](https://sp25-n320-flan-final.onrender.com/)
 
 ### Key Takeaways
 
