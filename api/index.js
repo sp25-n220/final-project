@@ -1,31 +1,41 @@
 const router = require("express").Router();
 const {
-  getAllGemCharacters,
-  getSavedGemsByUserId,
-  addNewGem,
+  getAllFestivals,
+  getFestivalById,
+  getTicketInventoryByFestivalId,
 } = require("../database");
 
-router.get("/test/:userId", function (req, res) {
+router.get("/test/:userId", (req, res) => {
   res.status(200).json({ msg: "Success", userId: req.params.userId });
 });
 
-router.post("/gems/new", async function (req, res) {
-  const newGem = await addNewGem({ name: req.body.name });
-  res.status(200).json({ newId: newGem, inputData: req.body });
+router.get("/festivals", async (req, res, next) => {
+  try {
+    const festivals = await getAllFestivals();
+    res.status(200).json({
+      total: festivals.length,
+      festivals,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
-router.get("/gems/all", async function (req, res) {
-  const allGems = await getAllGemCharacters();
-  res.status(200).json({ gems: allGems, total: allGems.length });
-});
+router.get("/festivals/:festivalId", async (req, res, next) => {
+  try {
+    const festivalId = parseInt(req.params.festivalId, 10);
+    const festival = await getFestivalById(festivalId);
+    if (!festival) {
+      return res.status(404).json({ error: "Festival not found" });
+    }
 
-router.get("/gems/user/:userId", async function (req, res) {
-  const userSavedGems = await getSavedGemsByUserId(req.params.userId);
-  res.status(200).json({
-    total: userSavedGems.length,
-    userId: req.params.userId,
-    gems: userSavedGems,
-  });
+    const inventory = await getTicketInventoryByFestivalId(festivalId);
+    res.status(200).json({
+      festival,
+      ticketInventory: inventory,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
-
 module.exports = router;
