@@ -25,6 +25,68 @@
         </ul>
       </nav>
 
+      <div class="trip-wrapper">
+        <h1>Plan Your Lollapalooza Trip</h1>
+
+        <!-- CREATE schedule -->
+        <section id="create-schedule">
+            <h2>Create Your Schedule</h2>
+            <form id="schedule-form">
+                <label for="festival">Choose Festival:</label>
+                <select id="festival" name="festival">
+                    <!-- Will populate options from the database -->
+                </select>
+
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="activities">Your Activities:</label>
+                <textarea id="activities" name="activities" placeholder="List your planned shows, food stops, etc..." required></textarea>
+
+                <button type="submit">Save Schedule</button>
+            </form>
+        </section>
+
+        <!-- READ schedules -->
+        <section id="view-schedules">
+            <h2>Your Saved Schedules</h2>
+            <div id="schedule-list">
+                <!-- User's saved schedules will appear here -->
+            </div>
+        </section>
+
+        <!-- PURCHASE tickets (simulate DELETE) -->
+        <section id="purchase-tickets">
+            <h2>Purchase Tickets</h2>
+            <form id="ticket-form">
+                <label for="ticket-festival">Choose Festival:</label>
+                <select id="ticket-festival" name="ticket-festival">
+                    <!-- Will populate options from the database -->
+                </select>
+
+                <label for="ticket-type">Ticket Type:</label>
+                <select id="ticket-type" name="ticket-type">
+                    <option value="General Admission">General Admission</option>
+                    <option value="VIP">VIP</option>
+                </select>
+
+                <label for="ticket-quantity">Quantity:</label>
+                <input type="number" id="ticket-quantity" name="ticket-quantity" min="1" required>
+
+                <label for="user-name">Your Name:</label>
+                <input type="text" id="user-name" name="user-name" required>
+
+                <label for="user-email">Your Email:</label>
+                <input type="email" id="user-email" name="user-email" required>
+
+                <button type="submit">Place Order</button>
+            </form>
+
+            <div id="ticket-orders">
+              
+            </div>
+        </section>
+    </div>
       
 
 </body>
