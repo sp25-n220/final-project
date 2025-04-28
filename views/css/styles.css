@@ -200,11 +200,13 @@ textarea {
 .cards-wrapper {
     display: flex;
     margin: 0 7.5vw;
+
+    justify-content: space-around;
 }
 
 .card {
     width: 350px;
-    height: 500px;
+    height: 450px;
     padding-top: 20px;
     background-color: var(--section-background-color);
     border-radius: 25px;
@@ -220,7 +222,10 @@ textarea {
 
 
 .card img {
+    aspect-ratio: 4/3;
     width: 100%;
+    height: auto;
     padding: 15px;
+    object-fit: contain;
     background-color: #ccc;
 }
