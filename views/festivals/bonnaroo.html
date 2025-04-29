@@ -55,27 +55,27 @@
           <li> -Camping Under the Stars with 80,000+ Fans</li>
           <li> -Sunrise Yoga, Parades, Silent Disco & More</li>
         </ul>
-        <div class="mt-4">
-          <button id="ticketBtn" class="btn btn-warning mt-4 fw-semibold px-4 py-2">Get Your Tickets</button>
-        </div>
-        <form id="ticketForm" class="mt-4 d-none">
-          <div class="mb-3">
-            <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="fullName" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Download Ticket</button>
-        </form>
       </div>
     </div>
-    <div class="row mt-5 text-center">
-      <div class="col-12">
+    <div class="row mt-5">
+      <div class="col-12 text-center">
         <h3>More Than a Festival.</h3>
         <p class="lead">Bonnaroo is about music, friendship, and unforgettable moments.</p>
       </div>
+      <div class="mt-4 text-center">
+        <button id="ticketBtn" class="btn btn-warning mt-4 fw-semibold px-4 py-2">Get Your Tickets</button>
+      </div>
+      <form id="ticketForm" class="mt-4 d-none">
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="fullName" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Download Ticket</button>
+      </form>
       <div class="col-md-4 mt-4">
         <div class="card h-100 shadow-sm">
           <div class="card-body text-center">
@@ -102,36 +102,52 @@
       </div>      
     </div>
   </div>
-      </main>
-      <script>
-        const { jsPDF } = window.jspdf;
-      
-        document.getElementById("ticketBtn").addEventListener("click", () => {
-          document.getElementById("ticketForm").classList.remove("d-none");
-        });
-      
-        document.getElementById("ticketForm").addEventListener("submit", function (e) {
-          e.preventDefault();
-      
-          const name = document.getElementById("fullName").value;
-          const email = document.getElementById("email").value;
-      
-          const doc = new jsPDF();
-          doc.setFont("helvetica", "bold");
-          doc.setFontSize(20);
-          doc.text("Midwestern Festivals", 20, 30);
-          doc.setFontSize(16);
-          doc.text("Ticket Confirmation: Bonnaroo", 20, 40);
-          doc.setFontSize(14);
-          doc.setFont("helvetica", "normal");
-          doc.text(`Name: ${name}`, 20, 55);
-          doc.text(`Email: ${email}`, 20, 65);
-          doc.text(`Festival: Bonnaroo`, 20, 75);
-          doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 85);
-          doc.text("Thank you for your purchase! Show this ticket at the entry gate.", 20, 105);
-      
-          doc.save(`Bonnaroo_Ticket_${name.replace(/\s/g, '_')}.pdf`);
-        });
-      </script>      
+</main>
+<footer class="bg-dark text-white mt-5 py-4">
+  <div class="container text-center">
+    <p class="mb-2">&copy; 2025 Midwestern Festivals. All Rights Reserved.</p>
+    <div>
+      <a href="../index.html" class="text-white mx-2 text-decoration-none">Home</a>
+      <a href="../about.html" class="text-white mx-2 text-decoration-none">About</a>
+      <a href="../contact.html" class="text-white mx-2 text-decoration-none">Contact</a>
+      <a href="index.html" class="text-white mx-2 text-decoration-none">Festivals</a>
+    </div>
+    <div class="mt-2">
+      <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+    </div>
+  </div>
+</footer>
+<script>
+  const { jsPDF } = window.jspdf;
+
+  document.getElementById("ticketBtn").addEventListener("click", () => {
+    document.getElementById("ticketForm").classList.remove("d-none");
+  });
+
+  document.getElementById("ticketForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+
+    const doc = new jsPDF();
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("Midwestern Festivals", 20, 30);
+    doc.setFontSize(16);
+    doc.text("Ticket Confirmation: Bonnaroo", 20, 40);
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Name: ${name}`, 20, 55);
+    doc.text(`Email: ${email}`, 20, 65);
+    doc.text(`Festival: Bonnaroo`, 20, 75);
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 85);
+    doc.text("Thank you for your purchase! Show this ticket at the entry gate.", 20, 105);
+
+    doc.save(`Bonnaroo_Ticket_${name.replace(/\s/g, '_')}.pdf`);
+  });
+</script>      
 </body>
 </html>
