@@ -48,6 +48,52 @@
           <a href="festivals/index.html" class="btn btn-warning mt-4 fw-semibold px-4 py-2">Explore Festivals</a>
         </div>
       </section>
+      <!-- Festival Carousel -->
+      <section>
+        <div class="container">
+          <h2 class="text-center fw-bold mb-4 text-primary">Top 3 Midwestern Festivals</h2>
+          <div id="festivalCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded shadow">
+
+              <div class="carousel-item active text-center p-5 bg-white">
+                <img src="img/festivals/shaky_knees.png" class="d-block mx-auto mb-4 rounded" alt="Festival 1" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold">Shaky Knees</h3>
+                <p class="text-muted">Celebrate under the stars with lanterns, music, and food trucks in the heart of the Midwest.</p>
+              </div>
+
+              <div class="carousel-item text-center p-5 bg-white">
+                <img src="img/festivals/bonnaroo.jpg" class="d-block mx-auto mb-4 rounded" alt="Festival 2" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold">Bonnaroo</h3>
+                <p class="text-muted">A celebration of community, autumn colors, and moonlight dancing with live folk bands.</p>
+              </div>
+
+              <div class="carousel-item text-center p-5 bg-white">
+                <img src="img/festivals/lollapalooza.jpeg" class="d-block mx-auto mb-4 rounded" alt="Festival 3" style="height: 300px; object-fit: cover;">
+                <h3 class="fw-bold">Lollapalooza</h3>
+                <p class="text-muted">Welcoming spring with floral floats, marching bands, and a family-friendly street fair vibe.</p>
+              </div>
+
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#festivalCarousel" data-bs-slide="prev">
+              <span class="bi bi-arrow-left-circle-fill fs-2 text-dark"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#festivalCarousel" data-bs-slide="next">
+              <span class="bi bi-arrow-right-circle-fill fs-2 text-dark"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+            <!-- Indicators -->
+            <div class="carousel-indicators mt-3">
+              <button type="button" data-bs-target="#festivalCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+              <button type="button" data-bs-target="#festivalCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#festivalCarousel" data-bs-slide-to="2"></button>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Team -->
       <section class="about-team py-5">
         <div class="container">
