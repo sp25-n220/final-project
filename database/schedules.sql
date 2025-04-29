@@ -1,3 +1,4 @@
+-- SQLite
 -- Scheduling table
 CREATE TABLE schedules (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,15 +21,7 @@ VALUES (2, 'Main Stage Performance', '2025-06-12 18:00:00', '2025-06-12 20:00:00
 
 -- Inserting a new schedule for Shaky Knees
 INSERT INTO schedules (festival_id, event_name, start_time, end_time)
-VALUES (3, 'Late Night Show', '2025-09-19 22:00:00', '2025-09-20 00:00:00')
+VALUES (3, 'Late Night Show', '2025-09-19 22:00:00', '2025-09-20 00:00:00');
 
 
 SELECT * FROM schedules;
-
-SELECT * FROM schedules WHERE festival_id = ?;
-
-UPDATE schedules
-SET event_name = ?, start_time = ?, end_time = ?
-WHERE id = ?;
-
-DELETE FROM schedules WHERE id = ?;
