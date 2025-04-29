@@ -9,37 +9,44 @@
 }
 
 body {
-    font-family: sans-serif;
-}
+    background-color: #FFF8F0;
+    font-family: 'Poppins', sans-serif;
+  }
 
-.navbar {
-    display: inherit;
-}
 
-.navbar ul {
-    display: flex;
-    position: sticky;
-    height: var(--navbar-height);
-    padding: 0;
+  .nav-link {
+    transition: background-color 0.3s, color 0.3s;
+    color: #FFF8F0;
+  }
+  
+  .nav-link:hover {
+    color: #FFF8F0 !important; 
+  }
 
-    justify-content: center;
-    align-items: center;
-    gap: 70px;
+  .nav {
+    color: #FFF8F0 !important; 
+    font-weight: 600;
+    text-decoration: none;
+    padding:20px;
+    margin: auto;
+  }
+  
+  .navbar-toggler {
+    border-color: #FFF8F0;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,248,240, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
 
-    background-color: black;
-
-    list-style: none;
-    color: white;
-}
-
-.navbar ul li a {
-    color: inherit;
-    text-decoration: inherit;
-}
-
-.navbar ul li a:hover {
-    color: lightgray;
-}
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
 
 /* Lollapalooza CSS*/
 
@@ -210,7 +217,7 @@ textarea {
     display: flex;
     margin: 0 7.5vw;
 
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .card {
@@ -236,5 +243,35 @@ textarea {
     height: auto;
     padding: 15px;
     object-fit: contain;
-    background-color: #ccc;
 }
+
+.description {
+    margin:auto;
+    padding: 10px 20px;
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(255, 94, 58, 0.8), rgba(255, 111, 97, 0.8)), 
+                url('../img/background-image.jpg') center/cover no-repeat;
+    height: 90vh;
+  }
+  
+  /* ABOUT THE TEAM SECTION */
+  .about-team {
+    background-color: #FFF8F0; /* Warm Sand */
+  }
+  
+  .about-team h2 {
+    color: #4A90E2; /* Sky Blue */
+  }
+  
+  .btn-warning {
+    background-color: #FFB300; /* Golden Amber */
+    border: none;
+  }
+  
+  .btn-warning:hover {
+    background-color: #FF5E3A; /* Sunset Orange */
+  }
+  

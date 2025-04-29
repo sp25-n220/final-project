@@ -18,6 +18,8 @@ app.use(
   )
 );
 
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+
 app.use((req, res) => {
   res.status(404);
   if (req.accepts('html')) {
