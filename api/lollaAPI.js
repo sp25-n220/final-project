@@ -1,83 +1,74 @@
-// const router = require("express").Router();
+const router = require("express").Router();
+const {
+    getAllSchedules,
+    createSchedule,
+    updateSchedule,
+    deleteSchedule
+} = require("../database");
 
-// const {
-//   getAllFestivals,
-//   getFestivalById,
-//   getTicketInventoryByFestivalId,
-//   createSchedule,
-//   updateSchedule,
-//   getAllSchedules,
-//   deleteSchedule,
-// } = require("../database");
+// GET all schedules
+router.get("/schedules", async (req, res, next) => {
 
-// // Scheduling endpoints 
+    try {
+        const schedules = await getAllSchedules();
+        res.status(200).json({ schedules });
+    } catch (err) {
+        next(err);
+    }
+});
 
-// // Display all schedules (READ)  
-// router.get("/festivals/:festivalId", async (req, res, next) => {
-//     try {
-//         const festivalId = parseInt(req.params.festivalId, 10);
-//         const festival = await getFestivalById(festivalId);
+// Create a new schedule
+router.post("/schedules", async (req, res, next) => {
+    try {
+        const {
+            userName,
+            userEmail,
+            startDate,
+            endDate,
+            activities,
+            ticketType,
+            ticketQuantity
+        } = req.body;
+  
+        if (!userName || !userEmail || !startDate || !endDate || !ticketQuantity) {
+            return res.status(400).json({ error: "Missing required fields" });
+        }
+  
+        const newSchedule = await createSchedule({
+            userName,
+            userEmail,
+            startDate,
+            endDate,
+            activities,
+            ticketType,
+            ticketQuantity
+        });
+  
+        res.status(201).json(newSchedule);
+    } catch (err) {
+        next(err);
+    }
+});
 
-//         if (!festival) {
-//             return res.status(404).json({error: "festival not found"})
-//         }
+// Update schedule
+router.put("/schedules/:scheduleId", async (req, res, next) => {
+    try {
+        const scheduleId = parseInt(req.params.scheduleId, 10);
+        const updated = await updateSchedule(scheduleId, req.body);
+        res.status(200).json(updated);
+    } catch (err) {
+        next(err);
+    }
+});
 
-//         const inventory = await getTicketInventoryByFestivalId(festivalId);
-//         res.status(200).json({
-//             festival, 
-//             ticketInventory: inventory,
-//         });
-
-//     } catch (error) {
-//         next(error)
-//     }
-// })
-
-// // READ (GET) all schedules
-// router.get("/schedules", async (req, res, next) => {
-//     try {
-//       const schedules = await getAllSchedules();
-//       res.status(200).json({ schedules });
-//     } catch (err) {
-//       next(err);
-//     }
-// });
-
-// // Create a new shedule 
-// // lollaSchedule
-// router.post("/schedules", async (req, res, next) => {
-//     try {
-//       const { festivalId, eventName, startTime, endTime } = req.body;  // Adjusted fields
-
-//       const newSchedule = await createSchedule(festivalId, eventName, startTime, endTime);
-
-//       res.status(201).json(newSchedule);
-//     } catch (err) {
-//       next(err);
-//     }
-// });
-
-// // UPDATE schedule
-// router.put("/schedules/:scheduleId", async (req, res, next) => {
-//     try {
-//       const scheduleId = parseInt(req.params.scheduleId, 10);
-//       const { eventName, startTime, endTime } = req.body;
-//       const updated = await updateSchedule(scheduleId, eventName, startTime, endTime);
-//       res.status(200).json(updated);
-//     } catch (err) {
-//       next(err);
-//     }
-// });
-
-
-// // Delete a Schedule 
-
-// router.delete("/schedules/:scheduleId", async (req, res, next) => {
-//     try {
-//       const scheduleId = parseInt(req.params.scheduleId, 10);
-//       await deleteSchedule(scheduleId);
-//       res.status(204).send(); // 204 = No Content
-//     } catch (err) {
-//       next(err);
-//     }
-// });
+// DELETE a schedule
+router.delete("/schedules/:scheduleId", async (req, res, next) => {
+    try {
+        const scheduleId = parseInt(req.params.scheduleId, 10);
+        await deleteSchedule(scheduleId);
+        res.status(204).send();
+    } catch (err) {
+        next(err);
+    }
+});
+  

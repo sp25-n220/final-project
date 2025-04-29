@@ -43,6 +43,7 @@ function getTicketInventoryByFestivalId(festivalId) {
 // 1. Get all schedules
 function getAllSchedules() {
   return new Promise((resolve, reject) => {
+    
     db.all(`SELECT * FROM schedules;`, [], (err, rows) => {
       if (err) return reject(err);
       resolve(rows);
@@ -50,30 +51,36 @@ function getAllSchedules() {
   });
 }
 
+
 // 2. Create a schedule
-function createSchedule(festivalId, eventName, startTime, endTime) {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `INSERT INTO schedules (festival_id, event_name, start_time, end_time) VALUES (?, ?, ?, ?);`,
-      [festivalId, eventName, startTime, endTime],
-      function (err) {
-        if (err) return reject(err);
-        resolve({ id: this.lastID, festivalId, eventName, startTime, endTime });
-      }
-    );
-  });
+function createSchedule(userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) {
+    return new Promise((resolve, reject) => {
+      db.run(
+        `INSERT INTO schedules (user_name, user_email, start_date, end_date, activities, ticket_type, ticket_quantity) VALUES (?, ?, ?, ?, ?, ?, ?);`,
+        [userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity],
+        function (err) {
+          if (err) return reject(err);
+          resolve({
+            id: this.lastID,
+            userName,
+            userEmail,
+            startDate,
+            endDate,
+            activities,
+            ticketType,
+            ticketQuantity,
+          });
+        }
+      );
+    });
 }
 
 // 3. Update a schedule
-function updateSchedule(scheduleId, eventName, startTime, endTime) {
+function updateSchedule(scheduleId, userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) {
   return new Promise((resolve, reject) => {
     db.run(
-      `UPDATE schedules SET event_name = ?, start_time = ?, end_time = ? WHERE id = ?;`,
-      [eventName, startTime, endTime, scheduleId],
-      function (err) {
-        if (err) return reject(err);
-        resolve({ updated: this.changes > 0 });
-      }
+      `UPDATE schedules SET user_name = ?, user_email = ?, start_date = ?, end_date = ?, activities = ?, ticket_type = ?, ticket_quantity = ? WHERE id = ?;`,
+      [userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity, scheduleId],
     );
   });
 }

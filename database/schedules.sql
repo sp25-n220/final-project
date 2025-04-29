@@ -1,27 +1,24 @@
 -- SQLite
 -- Scheduling table
-CREATE TABLE schedules (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  festival_id INTEGER NOT NULL,
-  event_name TEXT NOT NULL,
-  start_time DATETIME,
-  end_time DATETIME,
-  FOREIGN KEY(festival_id) REFERENCES festivals(id)
+CREATE TABLE IF NOT EXISTS schedules (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_name TEXT NOT NULL,
+    user_email TEXT NOT NULL,
+    start_date TEXT NOT NULL,
+    end_date TEXT NOT NULL,
+    activities TEXT,
+    ticket_type TEXT,
+    ticket_quantity INTEGER
+  
 );
 
 
 
 -- Inserting a new schedule for Lollapalooza
-INSERT INTO schedules (festival_id, event_name, start_time, end_time)
-VALUES (1, 'Opening Act', '2025-07-31 14:00:00', '2025-07-31 16:00:00');
-
--- Inserting a new schedule for Bonnaroo
-INSERT INTO schedules (festival_id, event_name, start_time, end_time)
-VALUES (2, 'Main Stage Performance', '2025-06-12 18:00:00', '2025-06-12 20:00:00');
-
--- Inserting a new schedule for Shaky Knees
-INSERT INTO schedules (festival_id, event_name, start_time, end_time)
-VALUES (3, 'Late Night Show', '2025-09-19 22:00:00', '2025-09-20 00:00:00');
+INSERT INTO schedules (user_name, user_email, start_date, end_date, activities, ticket_type, ticket_quantity)
+VALUES
+    ('Joseph Roper', 'joseph@gmail.com', '2025-06-15', '2025-06-20', 'Backstage , Concert', 'VIP', 2),
+    ('Josh Allen', 'joshy@gmail.com', '2025-06-15', '2025-06-15', 'Backstage, Concert', 'Regular', 1);
 
 
 SELECT * FROM schedules;
