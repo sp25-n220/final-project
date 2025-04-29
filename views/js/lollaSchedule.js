@@ -1,4 +1,7 @@
-tripForm.addEventListener("submit", async (e) => {
+const scheduleForm = document.getElementById("trip-form");
+
+
+scheduleForm.addEventListener("submit", async (e) => {
     e.preventDefault();
   
     const schedule = {
@@ -20,17 +23,17 @@ tripForm.addEventListener("submit", async (e) => {
         const res = await fetch("/api/schedules", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(trip)
+            body: JSON.stringify(schedule)
         });
   
-        if (!res.ok) throw new Error("Failed to save trip"); {
-            tripForm.reset();
+        if (!res.ok) throw new Error("Failed to save plan"); {
+            scheduleForm.reset();
             loadSchedulesFromServer();
         }
             
     } catch (err) {
         console.error(err);
-        alert("Error saving trip.");
+        alert("Error saving plan.");
     }
 });
 
@@ -52,7 +55,7 @@ async function loadSchedulesFromServer() {
                 <p><strong>Start:</strong> ${schedule.start_date}</p>
                 <p><strong>End:</strong> ${schedule.end_date}</p>
                 <p><strong>Activities:</strong> ${schedule.activities || "None listed"}</p>
-                <p><strong>Tickets:</strong> ${schedule.ticket_quantity} x ${trip.ticket_type}</p>
+                <p><strong>Tickets:</strong> ${schedule.ticket_quantity} x ${schedule.ticket_type}</p>
                 <p><strong>Email:</strong> ${schedule.user_email}</p>
                 <button class="edit-btn" data-id="${schedule.id}">Edit</button>
                 <button class="delete-btn" data-id="${schedule.id}">Delete</button>
@@ -61,7 +64,7 @@ async function loadSchedulesFromServer() {
         });
     } catch (err) {
         console.error(err);
-        alert("Error loading trips.");
+        alert("Error loading plans.");
     }
 }
 
