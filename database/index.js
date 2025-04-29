@@ -39,8 +39,64 @@ function getTicketInventoryByFestivalId(festivalId) {
   });
 }
 
+// --- SCHEDULES functions ---
+// 1. Get all schedules
+function getAllSchedules() {
+  return new Promise((resolve, reject) => {
+    db.all(`SELECT * FROM schedules;`, [], (err, rows) => {
+      if (err) return reject(err);
+      resolve(rows);
+    });
+  });
+}
+
+// 2. Create a schedule
+function createSchedule(festivalId, eventName, startTime, endTime) {
+  return new Promise((resolve, reject) => {
+    db.run(
+      `INSERT INTO schedules (festival_id, event_name, start_time, end_time) VALUES (?, ?, ?, ?);`,
+      [festivalId, eventName, startTime, endTime],
+      function (err) {
+        if (err) return reject(err);
+        resolve({ id: this.lastID, festivalId, eventName, startTime, endTime });
+      }
+    );
+  });
+}
+
+// 3. Update a schedule
+function updateSchedule(scheduleId, eventName, startTime, endTime) {
+  return new Promise((resolve, reject) => {
+    db.run(
+      `UPDATE schedules SET event_name = ?, start_time = ?, end_time = ? WHERE id = ?;`,
+      [eventName, startTime, endTime, scheduleId],
+      function (err) {
+        if (err) return reject(err);
+        resolve({ updated: this.changes > 0 });
+      }
+    );
+  });
+}
+
+// 4. Delete a schedule
+function deleteSchedule(scheduleId) {
+  return new Promise((resolve, reject) => {
+    db.run(`DELETE FROM schedules WHERE id = ?;`, [scheduleId], function (err) {
+      if (err) return reject(err);
+      resolve();
+    });
+  });
+}
+
+// --- Export everything ---
 module.exports = {
   getAllFestivals,
   getFestivalById,
-  getTicketInventoryByFestivalId
+  getTicketInventoryByFestivalId,
+  getAllSchedules,
+  createSchedule,
+  updateSchedule,
+  deleteSchedule,
+  
 };
+
