@@ -47,7 +47,10 @@ router.get("/festivals/:festivalId", async (req, res, next) => {
 router.get("/schedules", async (req, res, next) => {
   try {
     const schedules = await getAllSchedules();
-    res.status(200).json({ schedules });
+    res.status(200).json({
+      total: schedules.length,
+      schedules,
+    });
   } catch (err) {
     next(err);
   }

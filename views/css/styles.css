@@ -52,7 +52,7 @@ body {
 
 .lolla-wrapper {
     max-width: 85%;
-    background-color: red;
+    /* background-color: red; */
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
@@ -65,6 +65,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../img/festivals/lollapalooza.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .lolla-wrapper .lolla-image .lolla-text {
@@ -75,13 +79,12 @@ body {
     justify-content: center;
     align-items: center;
     background-color: black;
-    color: white;
+    color: #FF5E3A;
     font-size: 18px;
+    border-radius: 50px;
+    
 }
 
-.lolla-wrapper .lolla-image .lolla-text p {
-    margin: 0;
-}
 
 /* Three images section */
 .lolla-wrapper .three-lolla {
@@ -98,6 +101,25 @@ body {
     height: 200px;
     background-size: cover;
     background-position: center;
+   
+}
+.lolla-wrapper .three-lolla .img1 {
+    background-image: url(../img/festivals/entrance.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.lolla-wrapper .three-lolla .img2 {
+    background-image: url(../img/festivals/concert.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.lolla-wrapper .three-lolla .img3 {
+    background-image: url(../img/festivals/lineup.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* Data sections */
@@ -113,21 +135,77 @@ body {
 .lolla-wrapper .lolla-data2 .data2-img,
 .lolla-wrapper .lolla-data3 .data3-img {
     background-color: darkgray;
-    width: 150px;
-    height: 150px;
+    width: 40%;
+    height: 175px;
     background-size: cover;
     background-position: center;
 }
 
+
+.lolla-wrapper .lolla-data1 .data1-img{
+    background-image: url(../img/festivals/old-lolla.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.lolla-wrapper .lolla-data2 .data2-img{
+    background-image: url(../img/festivals/global-lolla.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lolla-wrapper .lolla-data3 .data3-img{
+    background-image: url(../img/festivals/lolla-art.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
 .lolla-wrapper .lolla-data1 .data1-text,
-.lolla-wrapper .lolla-data2 .data2-text,
 .lolla-wrapper .lolla-data3 .data3-text {
     margin-left: 20px;
-    background-color: white;
+    background-color: #FFB300;
     flex-grow: 1;
     padding: 10px;
     box-sizing: border-box;
+    width: 60%;
 }
+
+.lolla-wrapper .lolla-data2 .data2-text {
+    margin-right: 20px;
+    background-color: #FFB300;
+    flex-grow: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 60%;
+}
+
+
+
+.lolla-button-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .lolla-button {
+    background-color: #FF5E3A;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .lolla-button:hover {
+    background-color: #4A90E2;
+  }
+
+
 
 /* Lollapalooza - CRUD CSS */
 .trip-wrapper {

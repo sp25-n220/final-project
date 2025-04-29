@@ -1,0 +1,34 @@
+-- Scheduling table
+CREATE TABLE schedules (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  festival_id INTEGER NOT NULL,
+  event_name TEXT NOT NULL,
+  start_time DATETIME,
+  end_time DATETIME,
+  FOREIGN KEY(festival_id) REFERENCES festivals(id)
+);
+
+
+
+-- Inserting a new schedule for Lollapalooza
+INSERT INTO schedules (festival_id, event_name, start_time, end_time)
+VALUES (1, 'Opening Act', '2025-07-31 14:00:00', '2025-07-31 16:00:00');
+
+-- Inserting a new schedule for Bonnaroo
+INSERT INTO schedules (festival_id, event_name, start_time, end_time)
+VALUES (2, 'Main Stage Performance', '2025-06-12 18:00:00', '2025-06-12 20:00:00');
+
+-- Inserting a new schedule for Shaky Knees
+INSERT INTO schedules (festival_id, event_name, start_time, end_time)
+VALUES (3, 'Late Night Show', '2025-09-19 22:00:00', '2025-09-20 00:00:00')
+
+
+SELECT * FROM schedules;
+
+SELECT * FROM schedules WHERE festival_id = ?;
+
+UPDATE schedules
+SET event_name = ?, start_time = ?, end_time = ?
+WHERE id = ?;
+
+DELETE FROM schedules WHERE id = ?;
