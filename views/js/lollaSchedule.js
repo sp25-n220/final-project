@@ -1,124 +1,82 @@
-document.addEventListener("DOMContentLoaded", () => {
-   
-    // Load festivals into dropdown
-    loadFestivals();  
-    
-    // Load existing schedules
-    loadSchedules();  
+tripForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
   
-    // Handle creating a schedule
-    const scheduleForm = document.getElementById("schedule-form");
-    scheduleForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const festivalId = document.getElementById("festival").value;
-        const eventName = document.getElementById("activities").value; 
-        const startTime = document.getElementById("start-time").value;  
-        const endTime = document.getElementById("end-time").value;
-
-        // Validate inputs before submitting
-        if (!festivalId || !eventName || !startTime || !endTime) {
-            alert("All fields are required!");
-            return;
-        }
-
-        try {
-            const response = await fetch("/api/schedules", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ festivalId, eventName, startTime, endTime })
-            });
-
-            if (!response.ok) throw new Error("Failed to save schedule");
-
-            alert("Schedule saved!");
-            scheduleForm.reset();
-            // Refresh schedule list
-            loadSchedules(); 
-        } catch (err) {
-            console.error(err);
-            alert("Error saving schedule.");
-        }
-    });
+    const schedule = {
+        startDate: document.getElementById("start-date").value,
+        endDate: document.getElementById("end-date").value,
+        activities: document.getElementById("activities").value,
+        ticketType: document.getElementById("ticket-type").value,
+        ticketQuantity: document.getElementById("ticket-quantity").value,
+        userName: document.getElementById("user-name").value,
+        userEmail: document.getElementById("user-email").value,
+    };
   
-    // Handle deleting a schedule
-    document.getElementById("schedule-list").addEventListener("click", async (e) => {
-      if (e.target.classList.contains("delete-btn")) {
-        const scheduleId = e.target.dataset.id;
+    if (!schedule.startDate || !schedule.endDate || !schedule.ticketQuantity || !schedule.userName || !schedule.userEmail) {
+        alert("Please fill out all required fields.");
+        return;
+    }
   
-        try {
-          const response = await fetch(`/api/schedules/${scheduleId}`, {  
-            method: "DELETE",
-          });
-  
-          if (!response.ok) throw new Error("Failed to delete schedule");
-  
-          alert("Schedule deleted!");
-          loadSchedules(); // Refresh schedule list
-        } catch (err) {
-          console.error(err);
-          alert("Error deleting schedule.");
-        }
-      }
-    });
-});
-  
-// Load festivals into dropdown
-async function loadFestivals() {
     try {
-        // Fetch all festivals
-        const response = await fetch("/api/festivals"); 
-        const data = await response.json();
-        const festivals = data.festivals; 
-      
-  
-        const festivalSelect = document.getElementById("festival");
-        const ticketFestivalSelect = document.getElementById("ticket-festival");
-  
-        festivals.forEach(festival => {
-            const option = document.createElement("option");
-            option.value = festival.id;
-            option.textContent = festival.name;
-  
-            // For the ticket selection
-            const option2 = option.cloneNode(true); 
-            festivalSelect.appendChild(option);
-            ticketFestivalSelect.appendChild(option2);
+        const res = await fetch("/api/schedules", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(trip)
         });
+  
+        if (!res.ok) throw new Error("Failed to save trip"); {
+            tripForm.reset();
+            loadSchedulesFromServer();
+        }
+            
     } catch (err) {
         console.error(err);
-        alert("Failed to load festivals");
+        alert("Error saving trip.");
     }
-}
-  
-// Load schedules and display them
-async function loadSchedules() {
+});
+
+
+async function loadSchedulesFromServer() {
     try {
-        // Fetch all schedules
-        const response = await fetch("/api/schedules");  
-        const data = await response.json();
-        const schedules = data.schedules
-
-        console.log("Loaded schedules:", schedules); 
-
-        const scheduleList = document.getElementById("schedule-list");
-
-        // Clear existing schedules
+        const res = await fetch("/api/schedules");
+        const data = await res.json();
+        const schedule = data.schedule;
+  
+        const scheduleList = document.getElementById("trip-list");
         scheduleList.innerHTML = "";
-
-        schedules.forEach(schedule => {
+  
+        schedule.forEach((schedule) => {
             const div = document.createElement("div");
-            div.classList.add("schedule-item");
+            div.classList.add("trip-card");
             div.innerHTML = `
-                <h3>${schedule.event_name}</h3>  <!-- Corrected to match event_name -->
-                <p><strong>Start Time:</strong> ${schedule.start_time}</p>
-                <p><strong>End Time:</strong> ${schedule.end_time}</p>
+                <h3>${schedule.user_name}'s Trip</h3>
+                <p><strong>Start:</strong> ${schedule.start_date}</p>
+                <p><strong>End:</strong> ${schedule.end_date}</p>
+                <p><strong>Activities:</strong> ${schedule.activities || "None listed"}</p>
+                <p><strong>Tickets:</strong> ${schedule.ticket_quantity} x ${trip.ticket_type}</p>
+                <p><strong>Email:</strong> ${schedule.user_email}</p>
+                <button class="edit-btn" data-id="${schedule.id}">Edit</button>
                 <button class="delete-btn" data-id="${schedule.id}">Delete</button>
-            `;
+                `;
             scheduleList.appendChild(div);
         });
     } catch (err) {
         console.error(err);
-        alert("Failed to load schedules");
+        alert("Error loading trips.");
     }
 }
+
+async function deleteSchedule(id) {
+    try {
+        const res = await fetch(`/api/schedule/${id}`, {
+            method: "DELETE"
+    });
+  
+        if (!res.ok) throw new Error("Failed to delete trip");
+        loadSchedulesFromServer();
+    } catch (err) {
+        console.error(err);
+        alert("Error deleting trip.");
+    }
+}
+  
+  
