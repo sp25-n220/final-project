@@ -32,19 +32,14 @@
         <section id="create-schedule">
             <h2>Create Your Schedule</h2>
             <form id="schedule-form">
-                <label for="festival">Choose Festival:</label>
-                <select id="festival" name="festival">
-                    <!-- Will populate options from the database -->
-                </select>
-
-                <label for="date">Select Date:</label>
-                <input type="date" id="date" name="date" required>
-
-                <label for="activities">Your Activities:</label>
-                <textarea id="activities" name="activities" placeholder="List your planned shows, food stops, etc..." required></textarea>
-
-                <button type="submit">Save Schedule</button>
-            </form>
+              <select id="festival">
+                  <!-- Festival options populated by JS -->
+              </select>
+              <input type="text" id="activities" placeholder="Event Name" />
+              <input type="datetime-local" id="start-time" />
+              <input type="datetime-local" id="end-time" />
+              <button type="submit">Create Schedule</button>
+          </form>
         </section>
 
         <!-- READ schedules -->
