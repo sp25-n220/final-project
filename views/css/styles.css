@@ -386,6 +386,11 @@ textarea {
                 url('../img/background-image.jpg') center/cover no-repeat;
     height: 90vh;
   }
+
+  .contact_row {
+    background-color: #FFF8F0; /* Warm Sand */
+    padding: 20px 50px;
+  }
   
   /* ABOUT THE TEAM SECTION */
   .about-team {
@@ -409,4 +414,5 @@ textarea {
 
 .top-section {
     background-color: #FFF8F0; /* Warm Sand */
+    padding: 50px;
   }
