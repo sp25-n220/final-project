@@ -3,7 +3,7 @@
 
 .divider {
     width: 80%;
-    height: 4px;
+    height: 2px;
     margin: 3rem auto;
     background: linear-gradient(
       90deg,
@@ -104,7 +104,7 @@
   
   #ticketForm input {
     background-color: #FFF8F0;
-    color: #fff;
+    color: #222;
     border: 1px solid #FFB300;
   }
   

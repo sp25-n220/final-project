@@ -380,8 +380,9 @@ textarea {
   }
 
   .contact_row {
-    background-color: #FFF8F0; /* Warm Sand */
-    padding:20px;
+    padding:20px 0;
+    gap:20px;
+    justify-content:center;
   }
   
   /* ABOUT THE TEAM SECTION */
@@ -426,52 +427,19 @@ textarea {
     transition: all 0.3s ease-in-out;
   }
   
-
-  .sparkle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #4A90E2;
-    pointer-events: none;
-    animation: sparkle-fade 1s ease-out forwards;
-    z-index: 9999; /* stay on top */
-  }
-  
-  @keyframes sparkle-fade {
-    0% {
-      transform: scale(1.5);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(0.5);
-      opacity: 0;
-    }
-  }
-  
-  #trail-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-  }
-  
-  .trail-dot {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: rgba(100, 200, 255, 0.7);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: fadeOut 0.8s forwards;
-  }
-  
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      transform: scale(2);
-    }
+  .divider {
+    width: 80%;
+    height: 2px;
+    margin: 3rem auto;
+    background: linear-gradient(
+      90deg,
+      rgba(74, 144, 226, 0) 0%,
+      rgba(74, 144, 226, 1) 50%,
+      rgba(74, 144, 226, 0) 100%
+    );
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
   }
   
   
