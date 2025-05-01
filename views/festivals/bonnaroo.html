@@ -1,156 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonnaroo</title>
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/festivals.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #FF6F61;">
-        <div class="container">
-          <a class="navbar-brand text-white fw-bold" href="index.html">Midwestern Festivals</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#festivalNavbar" aria-controls="festivalNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="festivalNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav" href="../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav" href="index.html">Festivals</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav" href="../about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav" href="../contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <main>
-  <section class="bonnaroo-hero">
-    <div>
+  <nav class="navbar navbar-expand-lg header sticky-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="../index.html">Midwestern Festivals</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav text-white" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav text-white" href="index.html">Festivals</a></li>
+          <li class="nav-item"><a class="nav text-white" href="../about.html">About</a></li>
+          <li class="nav-item"><a class="nav text-white" href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <header class="bonnaroo-hero d-flex align-items-center justify-content-center text-center">
+    <div class="animate__animated animate__fadeInUp">
       <h1>Experience the Magic of Bonnaroo</h1>
       <p class="lead">Music, art, community... all in one unforgettable weekend.</p>
     </div>
-  </section>
-  <section class="top-section">
+  </header>
+  <main class="top-section">
     <div class="container festival-details">
-      <div class="row">
+      <div class="row g-5 align-items-center">
         <div class="col-md-6">
-          <img src="/img/festivals/bonnaroo-main.jpg" alt="Bonnaroo Festival Crowd" class="img-fluid rounded">
+          <img src="/img/festivals/bonnaroo-main.jpg" alt="Bonnaroo Festival Crowd" class="img-fluid rounded" />
         </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center align-content-center">
-          <h2 class="mb-3">What is Bonnaroo?</h2>
-          <p>Bonnaroo Music & Arts Festival is a four-day, multi-stage camping experience held in Manchester, Tennessee. Since 2002, Bonnaroo has brought together an eclectic lineup of artists, world-class art installations, mouthwatering food, and a vibrant community spirit that keeps fans coming back year after year.</p>
-          <ul class="list-unstyled mt-3" style="padding-bottom: 0;">
-            <li> -150+ Live Performances Across Genres</li>
-            <li> -World-Renowned Art Installations</li>
-            <li> -Camping Under the Stars with 80,000+ Fans</li>
-            <li> -Sunrise Yoga, Parades, Silent Disco & More</li>
+        <div class="col-md-6">
+          <h2 class="mb-3 fw-bold">What is Bonnaroo?</h2>
+          <p>Bonnaroo is a four-day, multi-stage music and arts festival held in Tennessee. It's a place where eclectic performances, stunning art, and vibrant community spirit collide to create unforgettable experiences.</p>
+          <ul class="list-unstyled mt-3">
+            <li>- 150+ Live Performances Across Genres</li>
+            <li>- World-Renowned Art Installations</li>
+            <li>- Camping Under the Stars with 80,000+ Fans</li>
+            <li>- Sunrise Yoga, Parades, Silent Disco & More</li>
           </ul>
         </div>
       </div>
-  </section>
-    <div class="row mt-5">
-      <div class="col-12 text-center">
-        <h3>More Than a Festival.</h3>
-        <p class="lead">Bonnaroo is about music, friendship, and unforgettable moments.</p>
-      </div>
-      <div class="mt-4 text-center">
-        <button id="ticketBtn" class="btn btn-warning mt-4 fw-semibold px-4 py-2" style="margin:20px 0">Get Your Tickets</button>
-      </div>
-      <form id="ticketForm" class="mt-4 d-none">
-        <div class="mb-3">
-          <label for="fullName" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="fullName" required>
+      <div class="divider"></div>
+      <div class="row mt-5 text-center">
+        <div class="col-12">
+          <h3 class="mb-3 fw-bold">More Than a Festival.</h3>
+          <p class="lead">Bonnaroo is about music, friendship, and unforgettable moments.</p>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
+        <div>
+          <button id="ticketBtn" class="btn btn-warning fw-semibold px-4 py-2 mt-3">Get Your Tickets</button>
         </div>
-        <button type="submit" class="btn btn-primary" style="margin:20px 0">Download Ticket</button>
-      </form>
-        <div class="col-md-4 mt-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body text-center">
+      </div>
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+          <form id="ticketForm" class="d-none">
+            <div class="mb-3">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Download Ticket</button>
+          </form>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
               <h5 class="card-title fw-bold">Epic Lineups</h5>
-              <p class="card-text">From headliners to hidden gems, Bonnaroo’s stages pulse with legendary performances and fresh new sounds.</p>
+              <p class="card-text">From headliners to hidden gems, Bonnaroo pulses with unforgettable performances.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mt-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body text-center">
+        <div class="col-md-4 mt-4 mt-md-0">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
               <h5 class="card-title fw-bold">Community Camping</h5>
-              <p class="card-text">Camp with old friends, meet new ones, and experience the all-night energy of the Roo community.</p>
+              <p class="card-text">Bond with fellow festival-goers and experience the all-night energy of Roo life.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 mt-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body text-center">
+        <div class="col-md-4 mt-4 mt-md-0">
+          <div class="card h-100 text-center shadow-sm">
+            <div class="card-body">
               <h5 class="card-title fw-bold">Immersive Art</h5>
-              <p class="card-text">Lose yourself in surreal art installations, dazzling light shows, and magical festival experiences.</p>
+              <p class="card-text">Wander through surreal installations and dazzling light shows.</p>
             </div>
           </div>
-        </div>      
+        </div>
+      </div>
     </div>
-  </div>
-</main>
-<footer class="bg-dark text-white mt-5 py-4">
-  <div class="container text-center">
-    <p class="mb-2">&copy; 2025 Midwestern Festivals. All Rights Reserved.</p>
-    <div>
-      <a href="../index.html" class="text-white mx-2 text-decoration-none">Home</a>
-      <a href="../about.html" class="text-white mx-2 text-decoration-none">About</a>
-      <a href="../contact.html" class="text-white mx-2 text-decoration-none">Contact</a>
-      <a href="index.html" class="text-white mx-2 text-decoration-none">Festivals</a>
+  </main>
+  <footer class="footer mt-5 py-4">
+    <div class="container text-center">
+      <p class="mb-2 text-white">&copy; 2025 Midwestern Festivals. All Rights Reserved.</p>
+      <div>
+        <a href="../index.html" class="text-white mx-2 text-decoration-none">Home</a>
+        <a href="../about.html" class="text-white mx-2 text-decoration-none">About</a>
+        <a href="../contact.html" class="text-white mx-2 text-decoration-none">Contact</a>
+        <a href="../festivals/index.html" class="text-white mx-2 text-decoration-none">Festivals</a>
+      </div>
+      <div class="mt-2">
+        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+      </div>
     </div>
-    <div class="mt-2">
-      <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
-    </div>
-  </div>
-</footer>
-<script>
-  const { jsPDF } = window.jspdf;
+  </footer>
 
-  document.getElementById("ticketBtn").addEventListener("click", () => {
-    document.getElementById("ticketForm").classList.remove("d-none");
-  });
+  <!-- ticket Generation -->
+  <script>
+    const { jsPDF } = window.jspdf;
 
-  document.getElementById("ticketForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+    document.getElementById("ticketBtn").addEventListener("click", () => {
+      const form = document.getElementById("ticketForm");
+      form.classList.remove("d-none");
+      form.classList.add("animate__animated", "animate__fadeInUp");
+    });
 
-    const name = document.getElementById("fullName").value;
-    const email = document.getElementById("email").value;
+    document.getElementById("ticketForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("fullName").value;
+      const email = document.getElementById("email").value;
 
-    const doc = new jsPDF();
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(20);
-    doc.text("Midwestern Festivals", 20, 30);
-    doc.setFontSize(16);
-    doc.text("Ticket Confirmation: Bonnaroo", 20, 40);
-    doc.setFontSize(14);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Name: ${name}`, 20, 55);
-    doc.text(`Email: ${email}`, 20, 65);
-    doc.text(`Festival: Bonnaroo`, 20, 75);
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 85);
-    doc.text("Thank you for your purchase! Show this ticket at the entry gate.", 20, 105);
-
-    doc.save(`Bonnaroo_Ticket_${name.replace(/\s/g, '_')}.pdf`);
-  });
-</script>
-<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>       
+      const doc = new jsPDF();
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(20);
+      doc.text("Midwestern Festivals", 20, 30);
+      doc.setFontSize(16);
+      doc.text("Ticket Confirmation: Bonnaroo", 20, 40);
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(14);
+      doc.text(`Name: ${name}`, 20, 55);
+      doc.text(`Email: ${email}`, 20, 65);
+      doc.text(`Festival: Bonnaroo`, 20, 75);
+      doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 85);
+      doc.text("Thank you for your purchase! Show this ticket at the entry gate.", 20, 105);
+      doc.save(`Bonnaroo_Ticket_${name.replace(/\s/g, '_')}.pdf`);
+    });
+  </script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -9,26 +9,21 @@
 }
 
 body {
-    background-color: #FFF8F0;
     font-family: 'Poppins', sans-serif;
   }
-
-
-  .nav-link {
-    transition: background-color 0.3s, color 0.3s;
-    color: #FFF8F0;
-  }
   
-  .nav-link:hover {
-    color: #FFF8F0 !important; 
+  .nav:hover {
+    color: #FFF8F0 !important;
+    text-decoration: underline !important; /* Add underline on hover */
   }
 
   .nav {
-    color: #FFF8F0 !important; 
+    color: #FFF8F0 !important;
     font-weight: 600;
     text-decoration: none;
     padding:20px;
     margin: auto;
+    transition: background-color 0.3s, color 0.3s;
   }
   
   .navbar-toggler {
@@ -346,20 +341,12 @@ textarea {
 .cards-wrapper {
     display: flex;
     margin: 0 7.5vw;
-
     justify-content: space-between;
 }
 
-.card {
-    width: 350px;
-    height: 450px;
-    padding-top: 20px;
-    background-color: var(--section-background-color);
-    border-radius: 25px;
-
-    text-align: center;
-    color: inherit;
-    text-decoration: none;
+.fest_card {
+    background: #FFF8F0;
+    padding: 20px 20px 0 20px;
 }
 
 .card h2 {
@@ -384,21 +371,22 @@ textarea {
 .hero {
     background: linear-gradient(rgba(255, 94, 58, 0.8), rgba(255, 111, 97, 0.8)), 
                 url('../img/background-image.jpg') center/cover no-repeat;
-    height: 90vh;
+    height: 70vh;
+    text-align: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
 
   .contact_row {
     background-color: #FFF8F0; /* Warm Sand */
-    padding: 20px 50px;
+    padding:20px;
   }
   
   /* ABOUT THE TEAM SECTION */
   .about-team {
     background-color: #FFF8F0; /* Warm Sand */
-  }
-  
-  .about-team h2 {
-    color: #4A90E2; /* Sky Blue */
   }
   
   .btn-warning {
@@ -413,6 +401,77 @@ textarea {
 /* Bonnaroo */
 
 .top-section {
-    background-color: #FFF8F0; /* Warm Sand */
     padding: 50px;
   }
+
+  /* Footer */
+
+  .footer {
+    background: linear-gradient(to bottom, #FF6F61, #FF5E3A)
+  }
+
+    /* Header */
+
+    .header {
+        background: linear-gradient(to bottom, #FF6F61, #FF5E3A)
+    }
+/* Randomizer Button */
+
+#randomizerBtn:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #randomResult {
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4A90E2;
+    pointer-events: none;
+    animation: sparkle-fade 1s ease-out forwards;
+    z-index: 9999; /* stay on top */
+  }
+  
+  @keyframes sparkle-fade {
+    0% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  #trail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .trail-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(100, 200, 255, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fadeOut 0.8s forwards;
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+  
+  
