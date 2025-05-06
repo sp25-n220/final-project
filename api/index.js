@@ -16,6 +16,8 @@ router.get("/test/:userId", (req, res) => {
 router.get("/festivals", async (req, res, next) => {
   try {
     const festivals = await getAllFestivals();
+
+    //The connection to our endpoint was succesful
     res.status(200).json({
       total: festivals.length,
       festivals,

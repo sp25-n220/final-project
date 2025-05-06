@@ -5,6 +5,7 @@ const scheduleForm = document.getElementById("trip-form");
 scheduleForm.addEventListener("submit", async (e) => {
     e.preventDefault();
   
+    // Get the values and store it in a schedule form
     const schedule = {
         startDate: document.getElementById("start-date").value,
         endDate: document.getElementById("end-date").value,
@@ -16,6 +17,8 @@ scheduleForm.addEventListener("submit", async (e) => {
     };
   
     console.log("Collected trip data:", schedule);
+
+    // Make sure these are required
 
     if (!schedule.startDate || !schedule.endDate || !schedule.ticketQuantity || !schedule.userName || !schedule.userEmail) {
         alert("Please fill out all required fields.");
@@ -29,15 +32,9 @@ scheduleForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(schedule)
         });
 
-        console.log("Server response status:", res.status);
+        // console.log("Server response status:", res.status);
   
-        if (!res.ok) {
-
-            scheduleForm.reset();
-            loadSchedulesFromServer();
-            throw new Error("Failed to save plan"); 
-
-        }
+       
             
         const responseData = await res.json();
         console.log("Successfully saved trip:", responseData);
@@ -51,7 +48,7 @@ scheduleForm.addEventListener("submit", async (e) => {
         console.error(err);
         alert("Error saving plan.");
     }
-    loadSchedulesFromServer();
+  
 });
 
 
@@ -115,14 +112,12 @@ async function loadSchedulesFromServer() {
 
 async function deleteSchedule(id) {
     try {
+        // Get the id's from schedules
+        // Had issues with this because i thoughout it was /:id not ${id}
         const res = await fetch(`/api/schedules/${id}`, {
             method: "DELETE"
     });
-  
-        if (!res.ok){
-            throw new Error("Failed to delete trip");
-        }
-
+    
         loadSchedulesFromServer();
 
     } catch (err) {
