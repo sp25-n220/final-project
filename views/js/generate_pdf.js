@@ -94,4 +94,24 @@ export class GeneratePdf {
         this.pdfDoc.setFillColor("white");
     }
 
+    addImage(imageUrl, x = 20, y = this.position.y + 10, width = 120, height = 70) {
+        console.log("Attempting to load image:", imageUrl);  
+
+        const img = new Image();
+        
+        // Load the image to the page
+        img.onload = () => {
+            console.log("Image loaded successfully!"); 
+            this.pdfDoc.addImage(img, x, y, width, height);
+            this.position.y = y + height + 10;
+            this.showPdf();
+        };
+
+        // Search for which url you will add to the page
+        img.src = imageUrl;
+
+       
+    }
+
+    
 }

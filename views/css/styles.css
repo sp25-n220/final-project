@@ -443,3 +443,24 @@ textarea {
   }
   
   
+/* Joseph Jspdf styling */
+
+.ticket-option img {
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+    
+}
+
+.ticket-images{
+    padding-top: 30px;
+    display: flex;
+}
+
+.shaky-knees-hero h4 {
+    margin-top: 30px;
+}
+
+.ticket-images radio {
+    
+}

@@ -54,9 +54,38 @@
               <input type="email" id="user-email" placeholder="Your E-mail..." />
             </div>
           
+            
+
+            <!-- Joseph edition to the jspdf -->
+            <h4>Which picture would you like on your ticket?</h4>
+            <div class="ticket-images">
+              <div class="ticket-option">
+                <img class = "image1" src="../img/festivals/shaky1.jpg"  />
+                <label>
+                  <input type="radio" name="ticketImageOption"  value="1" />
+                  Select this photo!
+                </label>
+              </div>
+              <div class="ticket-option">
+                <img class = "image2" src="../img/festivals/shaky2.jpg" />
+                <label>
+                  <input type="radio" name="ticketImageOption" value="2" />
+                  Select this photo!
+                </label>
+              </div>
+              <div class="ticket-option">
+                <img class = "image3" src="../img/festivals/shaky3.jpg" />
+                <label>
+                  <input type="radio" name="ticketImageOption" value="3" />
+                  Select this photo!
+                </label>
+              </div>
+            </div>
+            
             <div class="mt-4 text-center">
               <button id="generate-invoice" class="btn btn-warning mt-4 fw-semibold px-4 py-2" disabled>Get Your Tickets</button>
             </div>
+
             <section>
               <iframe id="pdf-preview" src="" frameborder="0"></iframe>
             </section>

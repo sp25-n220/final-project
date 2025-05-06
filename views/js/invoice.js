@@ -1,7 +1,7 @@
 import { GeneratePdf } from './generate_pdf.js';
 
 export class CoursePdf extends GeneratePdf {
-  generateInvoice(user, email, items) {
+  generateInvoice(user, email, items, imageUrl) {
     this.resetPdf();
     this.addHeader(festivalName, "blue", undefined, "bold");
     const currentDate = new Date().toLocaleDateString();
@@ -21,6 +21,11 @@ export class CoursePdf extends GeneratePdf {
     const netTotal = totalPrice * 1.07;
     this.addHeader(`Net Total (incl. 7% tax): $${netTotal.toFixed(2)}`, "black");
     this.showPdf();
+
+    // If there is an imageUrl, add the image to the invoice
+    if (imageUrl) {
+      this.addImage(imageUrl);
+  }
   }
 }
 
@@ -30,6 +35,16 @@ const viewBtn     = document.getElementById('generate-invoice');
 const downloadBtn = document.getElementById('download-invoice');
 let ticketInventory = [];
 let festivalName = '';
+// Joseph addition
+let selectedTicketImage = null;
+
+// Create a map of ticket images
+const ticketImages = {
+  1: '/img/festivals/shaky1.jpg', 
+  2: '/img/festivals/shaky2.jpg',  
+  3: '/img/festivals/shaky3.jpg',  
+  
+};
 
 async function loadInventory() {
   try {
@@ -63,6 +78,23 @@ function checkStatus() {
   }
 }
 
+function getSelectedTicketImage() {
+  const selectedRadio = document.querySelector('input[name="ticketImageOption"]:checked');
+  
+  //Get the value of the selected radio image ticket
+  if (selectedRadio) {
+    selectedTicketImage = selectedRadio.value;
+
+    const imageUrl = ticketImages[selectedTicketImage];
+
+    console.log("Image URL from selected ID:", imageUrl);
+
+    return imageUrl;
+  }
+
+  return null; 
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   await loadInventory();
   const form = document.getElementById('ticket-form');
@@ -71,12 +103,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.preventDefault();
     const ticket = getSelectedTicket();
     if (!ticket) return;
+
+    const selectedImageUrl = getSelectedTicketImage();  
     const invoice = new CoursePdf('pdf-preview');
+    console.log("Selected image URL:", selectedImageUrl);
+
     invoice.generateInvoice(
       userName.value,
       userEmail.value,
-      [{ name: ticket.ticket_type, price: ticket.price, quantity: 1 }]
+      [{ name: ticket.ticket_type, price: ticket.price, quantity: 1 }],
+      // Generate selected image
+      selectedImageUrl  
+
+      
     );
   });
   checkStatus();
 });
+
