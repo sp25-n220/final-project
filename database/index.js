@@ -56,7 +56,7 @@ function getAllSchedules() {
 function createSchedule(userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) {
     return new Promise((resolve, reject) => {
       db.run(
-        `INSERT INTO schedules (user_name, user_email, start_date, end_date, activities, ticket_type, ticket_quantity) VALUES (?, ?, ?, ?, ?, ?, ?);`,
+        `INSERT INTO schedules (userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) VALUES (?, ?, ?, ?, ?, ?, ?);`,
         [userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity],
         function (err) {
           if (err) return reject(err);
@@ -75,20 +75,20 @@ function createSchedule(userName, userEmail, startDate, endDate, activities, tic
     });
 }
 
-// 3. Update a schedule
-function updateSchedule(scheduleId, userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) {
-  return new Promise((resolve, reject) => {
-    db.run(
-      `UPDATE schedules SET user_name = ?, user_email = ?, start_date = ?, end_date = ?, activities = ?, ticket_type = ?, ticket_quantity = ? WHERE id = ?;`,
-      [userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity, scheduleId],
-    );
-  });
-}
+// // 3. Update a schedule
+// function updateSchedule(scheduleId, userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity) {
+//   return new Promise((resolve, reject) => {
+//     db.run(
+//       `UPDATE schedules SET user_name = ?, user_email = ?, start_date = ?, end_date = ?, activities = ?, ticket_type = ?, ticket_quantity = ? WHERE id = ?;`,
+//       [userName, userEmail, startDate, endDate, activities, ticketType, ticketQuantity, scheduleId],
+//     );
+//   });
+// }
 
 // 4. Delete a schedule
-function deleteSchedule(scheduleId) {
+function deleteSchedule(id) {
   return new Promise((resolve, reject) => {
-    db.run(`DELETE FROM schedules WHERE id = ?;`, [scheduleId], function (err) {
+    db.run(`DELETE FROM schedules WHERE id = ?;`, [id], function (err) {
       if (err) return reject(err);
       resolve();
     });
@@ -102,7 +102,7 @@ module.exports = {
   getTicketInventoryByFestivalId,
   getAllSchedules,
   createSchedule,
-  updateSchedule,
+  // updateSchedule,
   deleteSchedule,
   
 };

@@ -99,7 +99,7 @@ List all members and their roles
 
 Elias Arriaga - Analyist 
 
-Joseph Roper - President
+Joseph Roper - President, lollapalooza, lollapalooza-crud, schedules (in api/index.js), schedule (in database/index.js), the picture creation on the jspdf, schedules table. Get, create, update for api endpoints.
 
 Haven Hamelin - Scrum Master
 
