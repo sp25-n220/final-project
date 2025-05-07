@@ -81,11 +81,11 @@ async function loadSchedulesFromServer() {
             div.classList.add("trip-card");
             div.innerHTML = `
                 <h3>${schedule.userName}'s Trip</h3>
-                <p><strong>Start:</strong> ${schedule.startDate}</p>
-                <p><strong>End:</strong> ${schedule.endDate}</p>
-                <p><strong>Activities:</strong> ${schedule.activities || "None listed"}</p>
-                <p><strong>Tickets:</strong> ${schedule.ticketQuantity} x ${schedule.ticketType}</p>
-                <p><strong>Email:</strong> ${schedule.userEmail}</p>
+                <p><strong style="color: #FF6F61;">Start:</strong> ${schedule.startDate}</p>
+                <p><strong style="color: #FF6F61;">End:</strong> ${schedule.endDate}</p>
+                <p><strong style="color: #FF6F61;">Activities:</strong> ${schedule.activities || "None listed"}</p>
+                <p><strong style="color: #FF6F61;">Tickets:</strong> ${schedule.ticketQuantity} x ${schedule.ticketType}</p>
+                <p><strong style="color: #FF6F61;">Email:</strong> ${schedule.userEmail}</p>
                 <button class="delete-btn" data-id="${schedule.id}">Delete</button>
                 `;
             scheduleList.appendChild(div);
